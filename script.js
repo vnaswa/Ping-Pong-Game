@@ -47,7 +47,7 @@ function resetBoard(rodName) {
     ball.style.left = (windowWidth - ball.offsetWidth) / 2 + 'px';
 
 
-    // Lossing player gets the ball
+    
     if (rodName === rod2Name) {
         ball.style.top = (rod1.offsetTop + rod1.offsetHeight) + 'px';
         ballSpeedY = 2;
@@ -112,7 +112,7 @@ window.addEventListener('keypress', function () {
 
 
             movement = setInterval(function () {
-                // Move ball 
+                
                 ballX += ballSpeedX;
                 ballY += ballSpeedY;
 
@@ -127,26 +127,26 @@ window.addEventListener('keypress', function () {
                     ballSpeedX = -ballSpeedX; // Reverses the direction
                 }
 
-                // It specifies the center of the ball on the viewport
+                
                 let ballPos = ballX + ballDia / 2;
 
-                // Check for Rod 1
+                
                 if (ballY <= rod1Height) {
                     ballSpeedY = -ballSpeedY; // Reverses the direction
                     score++;
 
-                    // Check if the game ends
+                
                     if ((ballPos < rod1X) || (ballPos > (rod1X + rod1Width))) {
                         storeWin(rod2Name, score);
                     }
                 }
 
-                // Check for Rod 2
+                
                 else if ((ballY + ballDia) >= (windowHeight - rod2Height)) {
                     ballSpeedY = -ballSpeedY; // Reverses the direction
                     score++;
 
-                    // Check if the game ends
+                
                     if ((ballPos < rod2X) || (ballPos > (rod2X + rod2Width))) {
                         storeWin(rod1Name, score);
                     }
